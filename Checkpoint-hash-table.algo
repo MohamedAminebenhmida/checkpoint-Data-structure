@@ -1,0 +1,64 @@
+//Algorithm commun
+
+ALGORITHM algorithm_name
+VAR
+Tab1,Tab2: ARRAY_OF integer[10];
+Hash:HASH_TABLE<integer,integer>
+i:integer;
+sum:integer:=0;
+
+BEGIN
+FOR i FROM 0 TO Tab1.length-1 STEP 1  DO
+Hash.insert(Tab1[i],1);
+END_FOR
+FOR i FROM 0 TO Tab2.length-1 STEP 1  DO
+IF (Hash.lookup(Tab2[i])=True) THEN
+  Hash.insert(Tab2[i],2);
+  ELSE
+    Hash.insert(Tab2[i],1);
+  END_IF
+END_IF
+END_FOR
+
+FOR i FROM 0 TO Tab1.length-1 STEP 1 DO
+IF (Hash.get(Tab1[i])=2) THEN
+    sum:=sum+Tab1[I]*2;
+END_IF
+END_FOR
+write(sum)
+END
+
+//Algorithm different
+
+ALGORITHM Different
+VAR
+Tab1,Tab2: ARRAY_OF integer[10];
+Hash:HASH_TABLE<integer,integer>
+i:integer;
+sum:integer:=0;
+
+BEGIN
+FOR i FROM 0 TO Tab1.length-1 STEP 1  DO
+Hash.insert(Tab1[i],1);
+END_FOR
+FOR i FROM 0 TO Tab2.length-1 STEP 1  DO
+IF (Hash.lookup(Tab2[i])=True) THEN
+  Hash.insert(Tab2[i],2);
+  ELSE
+    Hash.insert(Tab2[i],1);
+  END_IF
+END_IF
+END_FOR
+
+FOR i FROM 0 TO Tab1.length-1 STEP 1 DO
+IF (Hash.get(Tab1[i])=1) THEN
+    sum:=sum+Tab1[i];
+END_IF
+END_FOR
+FOR i FROM 0 TO Tab2.length-1 STEP 1 DO
+IF (Hash.get(Tab2[i])=1) THEN
+    sum:=sum+Tab2[i];
+END_IF
+END_FOR
+write(sum)
+END
