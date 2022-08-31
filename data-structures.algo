@@ -1,0 +1,55 @@
+//Algorithm Commun Array
+ALGORITHM commun
+VAR
+    Tab1 : ARRAY_OF integer[];
+    Tab2 : ARRAY_OF integer[];
+    i:integer;
+    j:integer;
+    sum:integer:=0;
+BEGIN
+FOR i FROM 0 TO Tab1.length-1 STEP 1  DO
+FOR j FROM 0 TO Tab2.length-1 STEP 1 DO
+IF(Tab1[i]=Tab2[j]) THEN
+    sum:=sum+Tab1[i]*2;
+ 
+END_IF
+END_FOR
+END_FOR 
+write (sum)
+END
+//Algorithm Different Aray
+ALGORITHM different
+VAR
+    Tab1 : ARRAY_OF integer[];
+    Tab2 : ARRAY_OF integer[];
+    i:integer;
+    j:integer;
+    sum:integer:=0;
+    found:BOOLEAN;
+BEGIN
+FOR j FROM 0 TO Tab2.length-1 STEP 1  DO
+found:=FALSE
+FOR i FROM 0 TO Tab1.length-1 STEP 2  DO
+IF(Tab1[i]=Tab2[j]) THEN
+    found:=TRUE
+END_IF
+END_FOR 
+IF (found=False) THEN
+sum:=sum+Tab2[j];
+END_IF
+END_FOR
+
+
+FOR j FROM 0 TO Tab1.length-1 STEP 1  DO
+found:=FALSE
+FOR i FROM 0 TO Tab2.length-1 STEP 2  DO
+IF(Tab1[j]=Tab2[i]) THEN
+    found:=TRUE
+END_IF
+END_FOR 
+IF (found=False) THEN
+sum:=sum+Tab1[j];
+END_IF
+END_FOR 
+write (sum)
+END
